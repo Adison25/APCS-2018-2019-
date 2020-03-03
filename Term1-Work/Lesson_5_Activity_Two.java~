@@ -1,0 +1,13 @@
+class Lesson_5_Activity_Two {
+    public static void main(String[] args) {
+      
+                Scanner scan = new Scanner(System.in);
+     int x = scan.nextInt();
+     int x1 = scan.nextInt();
+     int x2 = scan.nextInt();
+     int x3 = scan.nextInt();
+     System.out.println (x + x1 + x2 + x3);
+
+
+    }
+}

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+class Lesson_4_Activity_Two {
+    public static void main(String[] args) {
+      
+        System.out.println ("Hi there. What is your name?");
+              Scanner scan = new scanner(System.in);
+        name = scan.nextLine();
+        
+     
+
+
+    }
+}

@@ -1,0 +1,14 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+
+class Lesson_11_Activity_Three {   
+public static void main(String[] args) 
+   { 
+    Scanner scan = new Scanner(System.in);
+  double x = scan.nextDouble();
+  double y = scan.nextDouble();
+ if (x == y)
+  System.out.print ("YES");
+    }
+}

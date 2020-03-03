@@ -1,0 +1,15 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+class Lesson_3_Activity_Two {
+    public static void main(String[] args) {
+      
+        Scanner scan = new Scanner(System.in);
+        String n1;
+        n1 = scan.nextLine();
+        string n2;
+        n2 = scan.nextLine();        
+        String n3;
+        n3 = scan.nextLine();
+        
+        System.out.println (+ n3 + n2 + n1 +)

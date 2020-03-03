@@ -1,0 +1,25 @@
+import java.util.Scanner;
+class Lesson_12_Activity_Three {
+public static void main(String[] args)
+{
+Scanner scan = new Scanner(System.in);
+System.out.println ("Enter a score:");
+double a = scan.nextDouble();
+ if (0.0 <= a)
+  {
+     if (a <= 100.0)
+     {
+  System.out.println ("Valid");
+     }
+  }
+ if (a<0)
+  {
+  System.out.println ("Not Valid");
+  }
+ if (a>100)
+  {
+  System.out.println ("Not Valid");
+  }
+  
+}
+}

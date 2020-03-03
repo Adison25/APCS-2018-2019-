@@ -1,0 +1,18 @@
+
+import java.util.Scanner;
+import java.lang.Math;
+
+class Lesson_4_Activity_One {
+    public static void main(String[] args) {
+      
+        Scanner s = new Scanner(System.in);
+        String nub1;
+        nub1 = s.nextLine();
+
+        String nub2;
+        nub2 = s.nextLine();
+
+        System.out.println (nub2 + nub1);
+
+    }
+}

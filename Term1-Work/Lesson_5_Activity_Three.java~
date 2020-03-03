@@ -1,0 +1,16 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+class Lesson_5_Activity_Three {
+    public static void main(String[] args) {
+      
+        Scanner scan =  new Scanner(System.in);
+  System.out.print ("Enter a radius:");
+  int r = scan.nextInt();
+  System.out.print (x);
+  
+  System.out.print  ("Circumference:" + 2 * 3.14 * r);
+  
+
+    }
+}

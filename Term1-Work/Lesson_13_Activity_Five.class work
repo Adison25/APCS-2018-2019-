@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+
+class Lesson_13_Activity_Five {
+public static void main(String[] args)
+{
+Scanner scan = new Scanner(System.in);
+int x =(int)(Math.random()* 12)+ 1;
+int y =(int)(Math.random()* 12)+ 1;
+
+ System.out.println(x);
+ System.out.println(y);
+ System.out.println("What is the answer if you mutiply these two integers?");
+int a = scan.nextInt();
+if (a== (x * y)) {
+ System.out.println("Correct!");
+} else {
+ System.out.println("Wrong");
+
+}
+}
+}

@@ -1,0 +1,23 @@
+import java.util.Scanner; 
+ class Lesson_13_Activity_Six {   
+ public static void main(String[] args)
+ {
+     
+Scanner scan = new Scanner(System.in);
+System.out.println ("What is the temperature?");
+double a = scan.nextDouble();
+
+if (a <= 102.0) {
+  if (a >= 99.0) {
+    System.out.println ("Temperature is OK");
+  }
+}
+ 
+if (a > 102.0)  {  
+    System.out.println("WARNING");
+}             
+if (a < 99.0) {
+    System.out.println("WARNING");
+}
+
+}} 
