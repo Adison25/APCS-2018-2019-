@@ -1,0 +1,25 @@
+public class Captain extends UltimatePlayer
+{
+	private boolean type;
+	
+	public Captain(String first, String last, String pos, boolean typ)
+	{
+		super(first,last,pos);
+		type = typ;
+	}
+	public String toString()
+	{
+		String side = "";
+		if (type == true)
+		{
+			side = "offense";
+		}
+		else
+		{
+			side = "defense";
+		}
+		return 	super.toString() + "\n" +
+				"   " + "Captain: " + side;
+	}
+	
+}

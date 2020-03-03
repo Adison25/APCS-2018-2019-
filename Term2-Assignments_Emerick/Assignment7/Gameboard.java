@@ -1,0 +1,326 @@
+import java.util.*;
+
+public class Gameboard {
+ public char[][] board = new char [8][8]; 
+  
+ public Gameboard(boolean setup)
+ {
+  for (int r = 0; r < board.length; r++)
+  {
+   for (int c = 0; c < board[0].length; c++)
+   {
+    board[r][c] = '-';
+   }
+  }
+
+  if (setup == true)
+  {
+   for (int i = 0; i < board[0].length; i+=2)
+   {
+    board[7][i] = 'w';
+   }
+   for (int i = 1; i < board[0].length; i+=2)
+   {
+    board[6][i] = 'w';
+   }
+   for (int i = 0; i < board[0].length; i+=2)
+   {
+    board[5][i] = 'w';
+   }
+   
+   for (int i = 1; i < board[0].length; i+=2)
+   {
+    board[2][i] = 'r';
+   }
+   for (int i = 0; i < board[0].length; i+=2)
+   {
+    board[1][i] = 'r';
+   }
+   for (int i = 1; i < board[0].length; i+=2)
+   {
+    board[0][i] = 'r';
+   }
+   
+  }
+ }
+ 
+ boolean move(int x, int y, boolean left) //use jump (add cant be on row 0 or col 0 in order to move
+ {
+  boolean check = false;
+  boolean canJump = jump(x,y);
+  if (canJump == true)
+  {
+   check = true;
+  }
+  else
+  {
+   if (left == true) //moves left
+   {
+    if (board[x][y] == 'r') //if it's r 
+    {
+     if(x == 7 || y == 7) // need to test for if it's out of boundes
+     {
+      check = false;
+     }
+     else
+     {
+      if(board[x+1][y+1] == '-') //down to the left
+      {
+       char temp = '-';
+       board[x+1][y+1] = 'r';
+       board[x][y] = temp;
+       check = true;
+       x+=1;
+       y+=1;
+      }
+      else {
+       check = false;
+      }
+     }
+    } 
+    if (board[x][y] == 'w') //if it's w 
+    {
+     if (x == 0 || y == 0)
+     {
+      check = false;
+     }
+     else 
+     {
+      if(board[x-1][y-1] == '-') //down to the left
+      {
+       char temp = '-';
+       board[x-1][y-1] = 'w';
+       board[x][y] = temp;
+       check = true;
+       x-=1;
+       y-=1;
+      }
+      else 
+      {
+       check = false;
+      }
+     }
+    }
+   }
+   else if (left == false) //moves right
+   {
+    if (board[x][y] == 'r')
+    {
+     if(x == 7 || y == 0)
+     {
+      check = false;
+     }
+     else
+     {
+      if(board[x+1][y-1] == '-')
+      {
+       char temp = '-';
+       board[x+1][y-1] = 'r';
+       board[x][y] = temp;
+       check = true;
+       x+=1;
+       y-=1;
+      }
+      else {
+       check = false;
+      }
+     }
+    }
+    if (board[x][y] == 'w')
+    {
+     if(x == 0 || y == 7)
+     {
+      check = false;
+     }
+     else
+     {
+      if(board[x-1][y+1] == '-')
+      {
+       char temp = '-';
+       board[x-1][y+1] = 'w';
+       board[x][y] = temp;
+       check = true;
+       x-=1;
+       y+=1;
+      }
+      else
+      {
+       check = false;
+      }
+     }
+    }
+   }
+  }
+  return check;
+ }
+ 
+ boolean jump(int x, int y)
+ {
+  int shutdown  = 0;
+  boolean checkJump = false;
+  if (board[x][y] != '-')
+  {
+   while (shutdown == 0)
+   {
+    if (board[x][y] == 'r') //testing for 'r' piece
+    {
+     if (x == 7 || y == 0)
+     {
+      checkJump = false;
+      shutdown++;
+     }
+     else
+     {
+      if(board[x+1][y-1] == 'w') //tests to see if down to the left is w
+      {
+       if(board[x+2][y-2] == '-')
+       {
+        char temp = '-';
+        board[x+2][y-2] = 'r';
+        board[x+1][y-1] = temp;
+        board[x][y] = temp;
+        checkJump = true;
+        x+=2;
+        y-=2;
+       }
+       else {
+        checkJump = false;
+        shutdown++;
+       }
+      }
+     }
+     if (x == 7 || y == 7)
+     {
+      checkJump = false;
+      shutdown++;
+     }
+     else 
+     {
+      if (board[x+1][y+1] == 'w') //tests to see if down to the right is w
+      {
+       if(board[x+2][y+2] == '-')
+       {
+        char temp = '-';
+        board[x+2][y+2] = 'r';
+        board[x+1][y+1] = temp;
+        board[x][y] = temp;
+        checkJump = true;
+        x+=2;
+        y+=2;
+       }
+       else {
+        checkJump = false;
+        shutdown++;
+       }
+      }
+      else {
+       shutdown++;
+      }
+     }
+     
+    }
+    
+    if (board[x][y] == 'w')
+    {
+     if (x == 0 || y == 0)
+     {
+      checkJump = false;
+      shutdown++;
+     }
+     else
+     {
+      if(board[x-1][y-1] == 'r') //tests to see if up to the left is r
+      {
+       if(board[x-2][y-2] == '-')
+       {
+        char temp = '-';
+        board[x-2][y-2] = 'w';
+        board[x-1][y-1] = temp;
+        board[x][y] = temp;
+        checkJump = true;
+        x-=2;
+        y-=2;
+       }
+       else {
+        checkJump = false;
+        shutdown++;
+       }
+      }
+     }
+     if ( x == 0 || y == 7)
+     {
+      checkJump = false;
+      shutdown++;
+     }
+     else
+     {
+      if(board[x-1][y+1] == 'r')
+      {
+       if (board[x-2][y+2] == '-')
+       {
+        char temp = '-';
+        board[x-2][y+2] = 'w';
+        board[x-1][y+1] = temp;
+        board[x][y] = temp;
+        checkJump = true;
+        x-=2;
+        y+=2;
+       }
+       else {
+        checkJump = false;
+        shutdown++;
+       }
+      }
+     }
+    }
+   }
+  }
+  return checkJump;
+ } //end of jump
+  
+ public boolean kingMe(int x, int y)
+ {
+  boolean kinged = false;
+  if (board[x][y] == 'r')
+  {
+   if (x == 7)
+   {
+    board[x][y] = 'R';
+    kinged = true;
+   }
+   else {
+    kinged = false;
+   }
+  }
+  if (board[x][y] == 'w')
+  {
+   if (x == 0)
+   {
+    board[x][y] = 'W';
+    kinged = true;
+   }
+   else {
+    kinged = false;
+   }
+  }
+  if (board[x][y] == '-')
+  {
+   kinged = false;
+  }
+  return kinged;
+ }
+ public String toString()
+ {
+  String output = "";
+  for (int i = 0; i < 8; i++)
+  {
+   for (int j = 0; j < 8; j++)
+   {
+    output+=board[i][j];
+   }
+   output += "\n";
+  }
+  return output;
+ }
+ 
+}

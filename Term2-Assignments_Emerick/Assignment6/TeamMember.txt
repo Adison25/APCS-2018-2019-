@@ -1,0 +1,64 @@
+import java.util.*;
+
+public class TeamMember {
+
+	private String fullName = "";
+	private String idString = "";
+	 
+	public TeamMember(String name, String id){
+		
+		idString = id;
+		String firstLetter = name.charAt(0) +"";
+		firstLetter = firstLetter.toUpperCase();
+		fullName += firstLetter;
+		for (int i = 1; i < name.length(); i++)
+		{
+			String letter = "";
+			if (name.charAt(i) == ' ')
+			{	
+				letter =  name.charAt(i + 1) + "";
+				letter = letter.toUpperCase();
+				fullName += " " + letter ;
+				i+=2;
+			}
+			if ((name.charAt(i) + "").equals("  "))
+			{
+				letter =  name.charAt(i) + "";
+				fullName += letter;
+				i++;
+				letter = name.charAt(i) + "";
+				letter = letter.toUpperCase();
+				fullName += letter ;
+			}
+			else 
+			{
+				letter =  name.charAt(i) + "";
+				letter = letter.toLowerCase();
+				fullName += letter;
+			}
+		}
+		
+	}
+	
+	public String toString()
+	{
+		return fullName;
+	}
+	
+	public int compareTo(TeamMember other)
+	{
+		if (this.idString.compareTo(other.idString) > 0) //then this is greater than other, so they need to flip 
+		{
+			return 1;
+		}
+		else if (this.idString.compareTo(other.idString) < 0) //then other is greater than this, so they need to flip
+		{
+			return -1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+}
+

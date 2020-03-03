@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Main {
+	public static void main (String[] args) {
+	
+	Scanner scan = new Scanner(System.in);
+	ArrayList<TeamMember> input = new ArrayList<TeamMember>();
+	
+	int count = 1;
+	while (count == 1)
+	{
+		System.out.println ("Enter the next name:");
+		String name = scan.nextLine();
+		if (name.toLowerCase().equals("stop"))
+		{
+			count++;
+		}
+		else
+		{
+			System.out.println ("Enter the next ID:");
+			String id = scan.nextLine();
+			
+			TeamMember temp = new TeamMember(name,id);
+			input.add(temp);
+		}
+	}
+	
+	for (int i = 0; i < input.size(); i++) //use the returns of TeamMember in compareTo
+	{
+		for (int j = 0; j <input.size()-1; j++)
+		{
+			if (input.get(i).compareTo(input.get(j)) == -1) 
+			{
+				TeamMember temp1 = input.get(i);
+				TeamMember temp2 = input.get(j);
+				input.remove(i);
+				input.add(i, temp2);
+				input.remove(j);
+				input.add(j, temp1);
+				
+			}
+		}
+	}
+	System.out.println (input);
+	
+}
+}

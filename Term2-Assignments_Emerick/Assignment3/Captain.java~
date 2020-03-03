@@ -1,0 +1,18 @@
+public class Captain extends UltimatePlayer
+{
+ private boolean type;
+ 
+ public Captain(String first, String last, String pos, boolean type)
+ {
+  super.UltimatePlayer();
+  if (pos.equals("handler"))
+  {
+   type = true;;
+  }
+  else
+  {
+   type = false;
+  }
+ }
+ 
+}

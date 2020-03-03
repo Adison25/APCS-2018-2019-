@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+
+  public static void main (String[] args) {
+ 
+ GameWheel test = new GameWheel();
+ //System.out.println(test.getprizeCards().get(0)));
+ 
+ public String toString() {
+ String firstPlayer = "";
+ int x = 0;
+ while (x!=5)
+ {
+  firstPlayer += spinWheel();
+ }
+
+  }
+}

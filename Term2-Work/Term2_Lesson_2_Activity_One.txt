@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Main {
+
+	
+
+ public static void main(String[] args)
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println ("Please enter words, enter STOP to stop the loop.");
+		ArrayList <String> list = new ArrayList <String>();
+		int flag = 0;
+		int count = 0;
+		while (flag == 0)
+		{
+			String currentWord = scan.nextLine();
+			if (currentWord.equals("STOP"))
+			{
+				flag = 1;
+				break;
+			}
+			else
+			{
+				list.add(currentWord);
+				count++;
+			}
+		}
+		if (flag == 1)
+		{
+			for (int i = 0; i < count; i++)
+			{
+				String aword = list.get(i);
+				if (aword.indexOf('a') != -1)
+				{
+					System.out.println (aword);
+				}
+			}
+		}
+	}
+}

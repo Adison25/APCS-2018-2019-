@@ -1,0 +1,78 @@
+/*
+ * AP CS MOOC
+ * Term 2 - Assignment 1, Dashboard
+ * A class which represents a car dashboard.
+ */
+
+public class Dashboard {
+
+    private int odometer1;
+    private int speedometer2;
+    private boolean checkEngine3;
+
+    public Dashboard() {
+        odometer = 0;
+  speedometer = 0;
+  checkEngine = false;
+    }
+
+    public Dashboard(int o, int s) {
+        if (odometer >= 0 && odometer <= 99999)
+  {
+   odometer = o;
+  }
+  else
+  {
+   checkEngine = true;
+   odometer = 0;
+  }
+  if (speedometer >= 0 && speedometer <= 100)
+  {
+   speedometer = s;
+  }
+  else
+  {
+   checkEngine = true;
+   speedometer = 0;
+  }
+    }
+
+    public String toString() 
+ {
+  if (checkEngine == true)
+  {
+   System.out.print("On");
+  }
+  else
+  {
+   checkEngine = "Off";
+  }
+        return  "Speedometer: " + odometer + " MPH" + "\n" +
+    "Odometer: " + (00000 + odometer) + "\n" + 
+    "Check Engine: " + checkEngine;
+    }
+
+    public void accelerate() 
+ {
+ 
+        if (speedometer >= 0 && speedometer <= 100)
+  {
+   speedometer += 1;
+  } 
+  else
+  {
+   speedometer = 0; 
+   checkEngine = true;
+  }
+    }
+
+    public void drive(int n) 
+ {
+        if (n >= 0 && n <= 720)
+  {
+   int miles = (speedometer * n)/60;
+   odometer += miles;
+  }
+    }
+
+}

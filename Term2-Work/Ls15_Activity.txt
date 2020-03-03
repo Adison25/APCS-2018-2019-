@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Lesson_15_Activity {
+		
+	public static void sortAndPrint(String [] list)
+	{
+		for (int i = 0; i < list.length -1; i++)
+		{
+			for(int z = i + 1; z < list.length; z++)
+			{
+				if(list[z].compareTo(list[i]) < 0)
+				{
+					String x = list[i];
+					list[i] = list[z];
+					list[z] = x;
+				}
+			}
+		}
+		
+		for (int x = 0; x < list.length; x++)
+		{
+			System.out.print (list[x] + " ");
+		}
+		
+	}
+	
+	public static void main (String[] args) {
+		
+		String [] list = { "against" , "forms" , "belief" , "government" , "democratic" , "movement" , "understanding"};
+		sortAndPrint(list);
+	}
+}
