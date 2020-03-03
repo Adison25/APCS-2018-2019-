@@ -1,0 +1,111 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Main {
+public static void main(String[] args) {
+
+	String list1 [] = new String[10000];
+	String list2 [] = new String[10000];
+	Scanner scan = new Scanner(System.in);
+	System.out.println ("Enter the values for the first array, up to 10000 values, enter 'End' to quit");
+	int count = 0;
+	int count2 = 0;
+	int flag1 = 0;
+	int flag2 = 0;
+	for (int i = 0; i < 10000; i++)
+	{
+		list1[i] = scan.nextLine();
+		String wordlower = list1[i].toLowerCase();
+		if (wordlower.equals("end"))
+		{
+			break;
+		}
+		String firstletter = list1[i].substring(0,1).toUpperCase();
+		list1[i] = firstletter + wordlower.substring(1);
+		count++;
+	}
+	
+	//checks for alphabetical
+	for (int i = 0; i < count - 1; i++)
+	{
+		int alpha1 = list1[i].compareTo(list1[i+1]);
+		if (alpha1>0)
+		{
+			flag1++;
+		}
+	}
+		
+	System.out.println ("Enter the values for the second array, up to 10000 values, enter 'End' to quit");
+	for (int i = 0; i < 10000; i++)
+	{
+		list2[i] = scan.nextLine();
+		String wordlower2 = list2[i].toLowerCase();
+		if (wordlower2.equals("end"))
+		{
+			break;
+		}
+		String firstletter2 = list2[i].substring(0,1).toUpperCase();
+		list2[i] = firstletter2 + wordlower2.substring(1);
+		count2++;
+	}
+	
+	//checks for alphabetical
+	for (int i = 0; i < count2 - 1; i++)
+	{
+		int alpha2 = list2[i].compareTo(list2[i+1]);
+		if (alpha2>0)
+		{
+			flag2++;
+		}
+	}
+		
+	System.out.println ("First Array");
+	for (int i = 0; i < count; i++)
+		{
+			System.out.print (list1[i] + " " );
+		}
+	System.out.println ("\n\nSecond Array");
+	for (int i = 0; i < count2; i++)
+		{
+			System.out.print (list2[i] + " " );
+		}
+	if (flag1 > 0 || flag2 > 0)
+	{
+		System.out.println ("\n\nError: Arrays not in correct order");
+	}else{
+			String merge [] = new String[count + count2];
+			int merge1 = 0;
+			int merge2 = 0;
+			System.out.println("\n\nMerged Array");
+			for (int i = 0; i < merge.length; i++)
+			{
+				if (list1[merge1].equals(null))
+				{
+					merge [i] = list2[merge2];
+					merge2++;
+				}
+				else if (list2[merge2].equals(null))
+				{
+					merge [i] = list1[merge1];
+					merge1++;
+				}		
+				else if	(list1[merge1].compareTo(list2[merge2]) < 0)
+				{		
+					merge [i] = list1[merge1];
+					merge1++;
+				}
+				else if	(list2[merge2].compareTo(list1[merge1]) < 0)
+				{
+					merge [i] = list2[merge2];
+					merge2++;
+				}
+				System.out.print (merge[i] + " " );
+			}
+		}
+	//merges arrays
+	// need to have counters for the indexs, so you can track which words have been put in.
+	
+	
+	
+
+}
+}

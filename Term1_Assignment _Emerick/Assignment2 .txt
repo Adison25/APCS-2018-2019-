@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Main {
+public static void main(String[] args) {
+
+  Scanner scan = new Scanner(System.in);
+  System.out.println ("Seconds Since Unix Epoch:");
+  int startsec = scan.nextInt();
+  
+  System.out.println(startsec);
+  int yearsec = 60*60*24*30*12;
+  int num_year = (startsec/yearsec);
+  int leftover = (startsec%yearsec);
+  
+  System.out.println ("Year: " + (num_year + 1970));
+  int num_month = leftover/(60*60*24*30);
+  int leftover1 = leftover%(60*60*24*30);
+  
+  System.out.println ("Month: " + num_month);
+  int num_day = leftover1/(60*60*24);
+  int leftover2 = leftover1%(60*60*24);
+  
+  System.out.println ("Day: " + num_day); 
+  int num_hour = leftover2/(60*60);
+  int leftover3 = leftover2%(60*60);
+  
+  System.out.println ("Hour: " + num_hour);
+  int num_min = leftover3/60;
+  int leftover4 = leftover3%60;
+  
+  System.out.println ("Min: " + num_min);
+  int num_sec = leftover4;
+  
+  System.out.println ("Sec: " + num_sec);
+
+ 
+  
+  }
+  }

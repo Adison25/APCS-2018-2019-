@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Main {
+public static void main(String[] args) {
+      
+        Scanner scan = new Scanner(System.in);
+    System.out.println ("Please enter ratings from the movie review website.");
+  int x = scan.nextInt();
+  int x1 = scan.nextInt();
+  int x2 = scan.nextInt();
+  System.out.println (x);
+  System.out.println (x1);
+  System.out.println (x2);
+   
+    System.out.println ("Please enter ratings from the focus group.");
+  double y = scan.nextDouble();
+  double y1 = scan.nextDouble();
+  System.out.println (y);
+  System.out.println (y1);
+ 
+ System.out.println ("Please enter the average movie critic raiting.");
+  double z = scan.nextDouble();
+  System.out.println (z);
+    
+  double avg1 = (double)(x + x1 + x2)/3;
+  double avg2 = (y + y1)/2;
+ double oavg = (avg1*.2)+(avg2*.3)+(z*.5);
+      
+  System.out.println ("Average website rating: " + avg1);
+  System.out.println ("Average focus group rating: " + avg2);
+  System.out.println ("Average movie critic rating: " + z);
+  System.out.println ("Overall movie rating: " + oavg);
+}
+}
+    

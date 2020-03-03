@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Main {
+public static void main(String[] args) {
+
+	Scanner scan = new Scanner(System.in);
+	System.out.println ("Enter the first String:");
+	String input = scan.nextLine();
+	System.out.println (input);
+	System.out.println ("Enter the pivot String:");
+	String pivot = scan.nextLine();
+	
+	
+	
+	
+	if (input.indexOf(pivot) == -1)
+	{
+		System.out.println ("Error: Pivot String not found.");
+	}
+	else 
+	{
+		int pivbefore = input.indexOf(pivot);
+		int pivafter = pivbefore + pivot.length();
+		
+		String befpivot = input.substring(0, pivbefore);
+		String aftpivot = input.substring(pivafter);
+		
+		System.out.print (aftpivot);
+		System.out.print (pivot);
+		System.out.print (befpivot);
+		
+	}
+	
+	
+	
+	
+	
+
+
+}
+}

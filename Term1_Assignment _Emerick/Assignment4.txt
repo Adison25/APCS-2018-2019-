@@ -1,0 +1,67 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Main {
+public static void main(String[] args) {
+
+	Scanner scan = new Scanner(System.in);
+	System.out.println ("Enter message board post:" + "\n");
+	String input = scan.nextLine() + " ";
+	int enduser = input.indexOf(' ');
+	String username = input.substring(0, enduser);
+	System.out.println (username);
+	
+	int length = input.length() -1 ;
+	int count = 0;
+	int flag = 0;
+	int count$ = 0; 
+	int cUp = 0;
+	int countqey = 0;
+	
+	while (count < length) 
+	{
+		if (count > enduser && input.charAt(count)== '$')			//This is checks how many money cuss words happen 
+		{
+		
+			if (input.charAt(count-1) == ' ' && input.charAt(count+1) == ' ')				
+			{
+				flag = 1;
+				count$ ++;
+				
+			}
+		}
+		if (count > enduser && input.charAt(count)== '^')  			//This checks for the up ups 
+		{
+			if(input.charAt(count-1) == ' ' && input.charAt(count+1)=='^' && input.charAt(count+2)==' ')
+			{
+				flag = 1;
+				cUp ++;
+			}
+		}
+		if (count > enduser && input.charAt(count)== 'q' || input.charAt(count)=='Q')
+		{
+			if(input.charAt(count-1) == ' ' && input.charAt(count+1)=='e' && input.charAt(count+2)=='y' && input.charAt(count+3)==' ')
+			{
+				flag = 1;
+				countqey ++;
+			}
+		}
+		
+		count++;
+	}
+	
+	if (flag == 1)
+	 {
+		System.out.println ("Results:" + "\n");
+		System.out.println ("BAD");
+		System.out.println (username); 
+		System.out.println ("^^: " + cUp);   
+		System.out.println ("qey: " + countqey);
+		System.out.println ("$: " + count$);   
+	 } else { 
+		System.out.println ("Results:" + "\n");
+		System.out.println ("CLEAN");
+			}
+	 
+	
+}
+}
